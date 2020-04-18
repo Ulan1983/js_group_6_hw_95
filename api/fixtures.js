@@ -13,20 +13,22 @@ const run = async () => {
 		await mongoose.connection.db.dropCollection(coll.name);
 	}
 
-	const [user, admin] = await User.create({
+	await User.create({
 		username: 'user',
 		password: '123',
 		role: 'user',
 		token: nanoid(),
 		displayName: 'John Doe',
-		avatar: 'fixtures/user.png'
+		avatar: 'fixtures/user.png',
+		facebookId: '1506285759548658'
 	}, {
 		username: 'admin',
 		password: '123',
 		role: 'admin',
 		token: nanoid(),
 		displayName: 'Admin',
-		avatar: 'fixtures/user.png'
+		avatar: 'fixtures/user.png',
+		facebookId: '1506285759548658'
 	});
 
 	mongoose.connection.close();
